@@ -1,0 +1,59 @@
+{% load static %}
+{% comment %} <!DOCTYPE html> {% endcomment %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uploads Manager</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+ 
+    <div class="header">
+      <div>
+        <h1>Reports</h1>
+        <p>Get your generated report here!!</p>
+      </div>
+      <div class="actions">
+        <div class="selected-files">
+          <i data-lucide="check"></i>
+          <span>0 files selected</span>
+        </div>
+        <button class="btn-download">
+          <i data-lucide="download"></i>
+        </button>
+        <button class="btn-delete">
+          <i data-lucide="trash"></i>
+        </button>
+        <button class="btn-generate-report" onclick="downloadReport()">Generate Report</button>
+        <div class="search">
+          <i data-lucide="search"></i>
+          <input type="text" placeholder="Search">
+        </div>
+      </div>
+    </div>
+
+    <div class="file-list">
+      <div class="file-list-header">
+        <div class="col-5">File by form</div>
+        <div class="col-2">Type</div>
+        <div class="col-2">Size</div>
+        <div class="col-2">Date</div>
+        <div class="col-1">Download</div>
+      </div>
+
+        <div class="group-files">
+          <!-- Files will be dynamically added here -->
+         
+        </div>
+      </div>
+    </div>
+ 
+
+  <script>
+    var reportUrl = "{% url 'download_report' %}";  // Generate URL in Django template
+  </script>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

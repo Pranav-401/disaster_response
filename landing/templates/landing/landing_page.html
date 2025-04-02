@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DisasterSync - AI-Powered Crisis Response</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Roboto) -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <style>
+      /* Magic UI-Inspired Effects */
+      .shimmer-btn {
+        position: relative;
+        overflow: hidden;
+      }
+      .shimmer-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: shimmer 2s infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        20% {
+          left: 100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+      .glow-on-hover {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      .glow-on-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+      }
+      .sketchfab-embed-wrapper {
+        width: 100%;
+        height: 50vh; /* Match previous canvas height */
+        display: block;
+        margin: 0 auto;
+      }
+      .sketchfab-embed-wrapper iframe {
+        width: 100%;
+        height: 100%;
+      }
+      .sketchfab-embed-wrapper p {
+        font-size: 13px;
+        font-weight: normal;
+        margin: 5px;
+        color: #4a4a4a;
+        text-align: center;
+      }
+      .sketchfab-embed-wrapper a {
+        font-weight: bold;
+        color: #1caad9;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body class="font-roboto bg-gray-100 text-gray-800 overflow-x-hidden">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-900 text-white p-4 fixed w-full top-0 z-50 shadow-lg">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <img
+            src="https://via.placeholder.com/40?text=AI"
+            alt="AI Disaster Icon"
+            class="w-10 h-10"
+          />
+          <span class="text-xl font-medium">DisasterSync</span>
+        </div>
+        <div class="hidden md:flex space-x-6" id="navLinks">
+          <a
+            data-scroll="home"
+            class="hover:text-red-500 transition-colors cursor-pointer"
+            >Home</a
+          >
+          <a
+            data-scroll="features"
+            class="hover:text-red-500 transition-colors cursor-pointer"
+            >Features</a
+          >
+          <a
+            data-scroll="impact"
+            class="hover:text-red-500 transition-colors cursor-pointer"
+            >Impact</a
+          >
+          <a
+            data-scroll="join"
+            class="hover:text-red-500 transition-colors cursor-pointer"
+            >Join Us</a
+          >
+        </div>
+        <button
+          id="authBtn"
+          class="border-2 border-red-500 text-white px-4 py-2 rounded-md hover:bg-red-500 transition-all shimmer-btn md:block hidden"
+        >
+          Login
+        </button>
+        <button
+          id="mobileAuthBtn"
+          class="border-2 border-red-500 text-white px-4 py-2 rounded-md hover:bg-red-500 transition-all shimmer-btn md:hidden"
+        >
+          Login
+        </button>
+        <div id="hamburger" class="md:hidden text-2xl cursor-pointer">☰</div>
+      </div>
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-blue-900 text-white p-4 space-y-4"
+      >
+        <a
+          data-scroll="home"
+          class="block hover:text-red-500 transition-colors cursor-pointer"
+          >Home</a
+        >
+        <a
+          data-scroll="features"
+          class="block hover:text-red-500 transition-colors cursor-pointer"
+          >Features</a
+        >
+        <a
+          data-scroll="impact"
+          class="block hover:text-red-500 transition-colors cursor-pointer"
+          >Impact</a
+        >
+        <a
+          data-scroll="join"
+          class="block hover:text-red-500 transition-colors cursor-pointer"
+          >Join Us</a
+        >
+      </div>
+    </nav>
+
+    <!-- Home Section with Sketchfab Earth -->
+    <section
+      id="home"
+      class="min-h-screen bg-gray-100 flex flex-col items-center justify-center py-16"
+    >
+      <div class="sketchfab-embed-wrapper">
+        <iframe
+          title="Earth"
+          frameborder="0"
+          allowfullscreen
+          mozallowfullscreen="true"
+          webkitallowfullscreen="true"
+          allow="autoplay; fullscreen; xr-spatial-tracking"
+          xr-spatial-tracking
+          execution-while-out-of-viewport
+          execution-while-not-rendered
+          web-share
+          src="https://sketchfab.com/models/f7a76c63ff1846afb2d606e5c8369c15/embed"
+        ></iframe>
+        <p>
+          <a
+            href="https://sketchfab.com/3d-models/earth-f7a76c63ff1846afb2d606e5c8369c15?utm_medium=embed&utm_campaign=share-popup&utm_content=f7a76c63ff1846afb2d606e5c8369c15"
+            target="_blank"
+            rel="nofollow"
+            >Earth</a
+          >
+          by
+          <a
+            href="https://sketchfab.com/PatelDev?utm_medium=embed&utm_campaign=share-popup&utm_content=f7a76c63ff1846afb2d606e5c8369c15"
+            target="_blank"
+            rel="nofollow"
+            >PatelDev</a
+          >
+          on
+          <a
+            href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=f7a76c63ff1846afb2d606e5c8369c15"
+            target="_blank"
+            rel="nofollow"
+            >Sketchfab</a
+          >
+        </p>
+      </div>
+      <div class="container mx-auto text-center mt-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+          Revolutionizing Disaster Response in India
+        </h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-700">
+          Leveraging AI, IoT, and GIS to tackle floods, earthquakes, and
+          cyclones with real-time solutions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features Section with Icons -->
+    <section id="features" class="min-h-screen py-16 bg-white">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold mb-8">Key Features</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md glow-on-hover">
+            <img
+              src="https://via.placeholder.com/40?text=📡"
+              alt="Satellite Icon"
+              class="w-10 h-10 mx-auto mb-4"
+            />
+            <h3 class="text-xl font-semibold text-red-500 mb-4">
+              AI Disaster Forecasting
+            </h3>
+            <p>
+              Early warning system with predictive analytics using satellite and
+              climate data.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md glow-on-hover">
+            <img
+              src="https://via.placeholder.com/40?text=🚚"
+              alt="Truck Icon"
+              class="w-10 h-10 mx-auto mb-4"
+            />
+            <h3 class="text-xl font-semibold text-red-500 mb-4">
+              Automated Relief Distribution
+            </h3>
+            <p>
+              Smart inventory tracking and logistics for efficient resource
+              allocation.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md glow-on-hover">
+            <img
+              src="https://via.placeholder.com/40?text=🚨"
+              alt="Alert Icon"
+              class="w-10 h-10 mx-auto mb-4"
+            />
+            <h3 class="text-xl font-semibold text-red-500 mb-4">
+              Live Communication Portal
+            </h3>
+            <p>
+              Instant alerts via SMS, app, and email for affected citizens and
+              agencies.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md glow-on-hover">
+            <img
+              src="https://via.placeholder.com/40?text=🤝"
+              alt="Team Icon"
+              class="w-10 h-10 mx-auto mb-4"
+            />
+            <h3 class="text-xl font-semibold text-red-500 mb-4">
+              Multi-Agency Collaboration
+            </h3>
+            <p>
+              Centralized platform uniting government, NGOs, and relief workers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="min-h-screen py-16 bg-gray-200">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold mb-8">Expected Impact</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          <div class="text-lg font-medium text-blue-900">
+            ✅ Faster Response Time
+          </div>
+          <div class="text-lg font-medium text-blue-900">
+            ✅ Efficient Resource Allocation
+          </div>
+          <div class="text-lg font-medium text-blue-900">
+            ✅ Improved Coordination
+          </div>
+          <div class="text-lg font-medium text-blue-900">
+            ✅ Life-Saving Technology
+          </div>
+        </div>
+        <p class="text-lg max-w-2xl mx-auto">
+          Reducing casualties and economic loss with AI-powered crisis
+          management.
+        </p>
+      </div>
+    </section>
+
+    <!-- Join Section -->
+    <section
+      id="join"
+      class="min-h-screen py-16 bg-red-500 text-white flex items-center justify-center"
+    >
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold mb-8">
+          Join the Movement
+        </h2>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto mb-6">
+          A smart disaster response system is critical for India’s future. Help
+          us save lives!
+        </p>
+        <button
+          class="shimmer-btn bg-blue-900 text-white px-6 py-3 rounded-md hover:bg-blue-800 transition-all"
+          onclick="alert('Redirecting to volunteer signup...')"
+        >
+          Get Involved
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h5 class="text-lg font-semibold mb-4">DisasterSync</h5>
+          <p>AI-Powered Crisis Response for India</p>
+        </div>
+        <div>
+          <h5 class="text-lg font-semibold mb-4">Quick Links</h5>
+          <ul class="space-y-2">
+            <li>
+              <a href="#features" class="hover:text-red-500 transition-colors"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a href="#impact" class="hover:text-red-500 transition-colors"
+                >Impact</a
+              >
+            </li>
+            <li>
+              <a href="#join" class="hover:text-red-500 transition-colors"
+                >Join Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-lg font-semibold mb-4">Contact Us</h5>
+          <p>
+            Email:
+            <a
+              href="mailto:support@disastersync.in"
+              class="hover:text-red-500 transition-colors"
+              >support@disastersync.in</a
+            >
+          </p>
+          <p>
+            Follow us:
+            <a href="#" class="hover:text-red-500 transition-colors">Twitter</a>
+            |
+            <a href="#" class="hover:text-red-500 transition-colors"
+              >LinkedIn</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 text-center border-t border-blue-800 pt-4">
+        <p>© 2025 DisasterSync. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // GSAP Animations
+      gsap.from(".navbar", {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
+      gsap.from("footer", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: { trigger: "footer", start: "top 80%" },
+      });
+      gsap.utils.toArray("section").forEach((section) => {
+        gsap.from(section.children, {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: { trigger: section, start: "top 80%" },
+        });
+      });
+
+      // Smooth Scrolling
+      document
+        .querySelectorAll(".nav-links a, #mobileMenu a")
+        .forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const target = document.getElementById(
+              link.getAttribute("data-scroll")
+            );
+            target.scrollIntoView({ behavior: "smooth" });
+            document.getElementById("mobileMenu").classList.add("hidden");
+          });
+        });
+
+      // Login Button (Desktop)
+      const authBtn = document.getElementById("authBtn");
+      authBtn.addEventListener("click", () => {
+        gsap.to(authBtn, { scale: 1.1, duration: 0.2, yoyo: true, repeat: 1 });
+        alert("Logged in! Access Dashboard?");
+      });
+
+      // Login Button (Mobile)
+      const mobileAuthBtn = document.getElementById("mobileAuthBtn");
+      mobileAuthBtn.addEventListener("click", () => {
+        gsap.to(mobileAuthBtn, {
+          scale: 1.1,
+          duration: 0.2,
+          yoyo: true,
+          repeat: 1,
+        });
+        alert("Logged in! Access Dashboard?");
+      });
+
+      // Hamburger Menu
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        gsap.fromTo(
+          "#mobileMenu:not(.hidden) a",
+          { y: -20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }
+        );
+      });
+    </script>
+  </body>
+</html>

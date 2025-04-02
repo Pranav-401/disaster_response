@@ -1,0 +1,221 @@
+<div class="main-nav">
+  <!-- Sidebar Logo -->
+  <div class="logo-box">
+    <a href="index.html" class="logo-dark">
+      <img src="../static/images/logo-sm.png" class="logo-sm" alt="logo sm" />
+      <img
+        src="../static/images/logo-dark.png"
+        class="logo-lg"
+        alt="logo dark"
+      />
+    </a>
+
+    <a href="index.html" class="logo-light">
+      <img src="../static/images/logo-sm.png" class="logo-sm" alt="logo sm" />
+      <img
+        src="../static/images/logo-light.png"
+        class="logo-lg"
+        alt="logo light"
+      />
+    </a>
+  </div>
+
+  <!-- Menu Toggle Button (sm-hover) -->
+  <button type="button" class="button-sm-hover" aria-label="Show Full Sidebar">
+    <iconify-icon
+      icon="solar:double-alt-arrow-right-bold-duotone"
+      class="button-sm-hover-icon"
+    ></iconify-icon>
+  </button>
+
+  <div class="scrollbar" data-simplebar>
+    <ul class="navbar-nav" id="navbar-nav">
+      <li class="menu-title">General</li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <span class="nav-icon">
+            <iconify-icon icon="solar:widget-5-bold-duotone"></iconify-icon>
+          </span>
+          <span class="nav-text"> Dashboard </span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link menu-arrow"
+          href="#sidebarCategory"
+          data-bs-toggle="collapse"
+          role="button"
+          aria-expanded="false"
+          aria-controls="sidebarCategory"
+        >
+          <span class="nav-icon">
+            <iconify-icon
+              icon="solar:clipboard-list-bold-duotone"
+            ></iconify-icon>
+          </span>
+          <span class="nav-text"> Category </span>
+        </a>
+        <div class="collapse" id="sidebarCategory">
+          <ul class="nav sub-navbar-nav">
+            <li class="sub-nav-item">
+              <a class="sub-nav-link" href="#"> floods</a>
+            </li>
+            <li class="sub-nav-item">
+              <a class="sub-nav-link" href="#"> droughts</a>
+            </li>
+            <li class="sub-nav-item">
+              <a class="sub-nav-link" href="#">earthquakes</a>
+            </li>
+            <li class="sub-nav-item">
+              <a class="sub-nav-link" href="#">cyclones</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#sidebarInventory"
+          data-bs-toggle="collapse"
+          role="button"
+          aria-expanded="false"
+          aria-controls="sidebarInventory"
+        >
+          <span class="nav-icon">
+            <iconify-icon icon="solar:box-bold-duotone"></iconify-icon>
+          </span>
+          <span class="nav-text"> Inventory </span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          data-bs-toggle="collapse"
+          role="button"
+          aria-expanded="false"
+          aria-controls="sidebarInvoice"
+        >
+          <span class="nav-icon">
+            <iconify-icon icon="solar:bill-list-bold-duotone"></iconify-icon>
+          </span>
+          <span class="nav-text"> Invoice </span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <span class="nav-icon">
+            <iconify-icon icon="solar:settings-bold-duotone"></iconify-icon>
+          </span>
+          <span class="nav-text"> Settings </span>
+        </a>
+      </li>
+
+      <li class="menu-title mt-2">Users</li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <span class="nav-icon">
+            <iconify-icon
+              icon="solar:chat-square-like-bold-duotone"
+            ></iconify-icon>
+          </span>
+          <span class="nav-text"> Profile </span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link menu-arrow"
+          href="#sidebarRoles"
+          data-bs-toggle="collapse"
+          role="button"
+          aria-expanded="false"
+          aria-controls="sidebarRoles"
+        >
+          <span class="nav-icon">
+            <iconify-icon
+              icon="solar:user-speak-rounded-bold-duotone"
+            ></iconify-icon>
+          </span>
+          <span class="nav-text"> Roles </span>
+        </a>
+        <div class="collapse" id="sidebarRoles">
+          <ul class="nav sub-navbar-nav">
+            <ul class="nav sub-navbar-nav">
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="role-list.html">rescue teams</a>
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="role-edit.html"
+                  >government authorities</a
+                >
+              </li>
+              <li class="sub-nav-item">
+                <a class="sub-nav-link" href="role-add.html">
+                  relief agencies</a
+                >
+              </li>
+            </ul>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="apps-calendar.html">
+          <span class="nav-icon">
+            <iconify-icon icon="solar:calendar-bold-duotone"></iconify-icon>
+          </span>
+          <span class="nav-text"> Calendar </span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="apps-todo.html">
+          <span class="nav-icon">
+            <iconify-icon icon="solar:checklist-bold-duotone"></iconify-icon>
+          </span>
+          <span class="nav-text"> Todo </span>
+        </a>
+      </li>
+
+      <li class="menu-title mt-2">Support</li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="help-center.html">
+          <span class="nav-icon">
+            <iconify-icon icon="solar:help-bold-duotone"></iconify-icon>
+          </span>
+          <span class="nav-text"> Help Center </span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="pages-faqs.html">
+          <span class="nav-icon">
+            <iconify-icon
+              icon="solar:question-circle-bold-duotone"
+            ></iconify-icon>
+          </span>
+          <span class="nav-text"> FAQs </span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="privacy-policy.html">
+          <span class="nav-icon">
+            <iconify-icon
+              icon="solar:document-text-bold-duotone"
+            ></iconify-icon>
+          </span>
+          <span class="nav-text"> Privacy Policy </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

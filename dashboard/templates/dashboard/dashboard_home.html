@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title Meta -->
+    <meta charset="utf-8" />
+    <title>ResQIndia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A fully responsive premium admin dashboard template"
+    />
+    <meta name="author" content="Techzaa" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../static/images/iconfav.png" />
+
+    <!-- Vendor css (Require in all Page) -->
+    <link
+      href="../static/css/vendor.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Icons css (Require in all Page) -->
+    <link href="../static/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css (Require in all Page) -->
+    <link href="../static/css/app.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme Config js (Require in all Page) -->
+    <script src="../static/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- START Wrapper -->
+    <div class="wrapper">
+      <!-- ========== Topbar Start ========== -->
+
+      {% include "dashboard/header.html" %}
+
+      <!-- ========== Topbar End ========== -->
+
+      <!-- ========== App Menu Start ========== -->
+      {% include "dashboard/main_navbar.html" %}
+      <!-- ========== App Menu End ========== -->
+
+      <!-- ==================================================== -->
+      <!-- Start right Content here -->
+      <!-- ==================================================== -->
+      {% include "dashboard/page_content.html" %}
+      <!-- ==================================================== -->
+      <!-- End Page Content -->
+      <!-- ==================================================== -->
+    </div>
+    <!-- END Wrapper -->
+
+    <!-- Vendor Javascript (Require in all Page) -->
+    <script src="../static/js/vendor.js"></script>
+
+    <!-- App Javascript (Require in all Page) -->
+    <script src="../static/js/app.js"></script>
+
+    <!-- Vector Map Js -->
+    <script src="../static/vendor/jsvectormap/js/jsvectormap.min.js"></script>
+    <script src="../static/vendor/jsvectormap/maps/world-merc.js"></script>
+    <script src="../static/vendor/jsvectormap/maps/world.js"></script>
+
+    <!-- Dashboard Js -->
+    <script src="../static/js/pages/dashboard.js"></script>
+  </body>
+</html>
