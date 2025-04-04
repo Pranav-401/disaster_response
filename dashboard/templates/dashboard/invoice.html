@@ -1,59 +1,243 @@
 {% load static %}
-{% comment %} <!DOCTYPE html> {% endcomment %}
+<!DOCTYPE html>
 <html lang="en">
+->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uploads Manager</title>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <script src="https://unpkg.com/lucide@latest"></script>
+     <!-- Title Meta -->
+     <meta charset="utf-8" />
+     <title>Invoices List | Larkon - Responsive Admin Dashboard Template</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="A fully responsive premium admin dashboard template" />
+     <meta name="author" content="Techzaa" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+     <script src="https://unpkg.com/lucide@latest"></script>
+     
+     <!-- App favicon -->
+     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+     
+
+     <!-- Vendor css (Require in all Page) -->
+     <link href="{% static 'css/vendor.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- Icons css (Require in all Page) -->
+     <link href="{% static 'css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- App css (Require in all Page) -->
+     <link href="{% static 'css/app.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- Theme Config js (Require in all Page) -->
+     <script src="{% static 'js/config.js' %}"></script>
 </head>
+
 <body>
+
+     <!-- START Wrapper -->
+     <div class="wrapper">
  
-    <div class="header">
-      <div>
-        <h1>Reports</h1>
-        <p>Get your generated report here!!</p>
-      </div>
-      <div class="actions">
-        <div class="selected-files">
-          <i data-lucide="check"></i>
-          <span>0 files selected</span>
-        </div>
-        <button class="btn-download">
-          <i data-lucide="download"></i>
-        </button>
-        <button class="btn-delete">
-          <i data-lucide="trash"></i>
-        </button>
-        <button class="btn-generate-report" onclick="downloadReport()">Generate Report</button>
-        <div class="search">
-          <i data-lucide="search"></i>
-          <input type="text" placeholder="Search">
-        </div>
-      </div>
-    </div>
+          {% include 'dashboard/header.html' %}
+          <!-- ========== App Menu Start ========== -->
+          {% include 'dashboard/main_navbar.html' %}
+          <!-- ========== App Menu End ========== -->
 
-    <div class="file-list">
-      <div class="file-list-header">
-        <div class="col-5">File by form</div>
-        <div class="col-2">Type</div>
-        <div class="col-2">Size</div>
-        <div class="col-2">Date</div>
-        <div class="col-1">Download</div>
-      </div>
+          <!-- ==================================================== -->
+          <!-- Start right Content here -->
+          <!-- ==================================================== -->
+          <div class="page-content">
 
-        <div class="group-files">
-          <!-- Files will be dynamically added here -->
-         
-        </div>
-      </div>
-    </div>
- 
+               <!-- Start Container Fluid -->
+               <div class="container-xxl">
 
-  <script>
-    var reportUrl = "{% url 'download_report' %}";  // Generate URL in Django template
-  </script>
-  <script src="{% static 'js/script.js' %}"></script>
+                    <!-- Start here.... -->
+                    <div class="row">
+                         <div class="col-lg-3">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                             <div>
+                                                  <h4 class="card-title mb-2 d-flex align-items-center gap-2">Total Invoice</h4>
+                                                  <p class="text-muted fw-medium fs-22 mb-0">2310</p>
+                                             </div>
+                                             <div>
+                                                  <div class="avatar-md bg-primary bg-opacity-10 rounded">
+                                                       <iconify-icon icon="solar:bill-list-bold-duotone" class="fs-32 text-primary avatar-title"></iconify-icon>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-lg-3">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                             <div>
+                                                  <h4 class="card-title mb-2 d-flex align-items-center gap-2">Pending Invoice</h4>
+                                                  <p class="text-muted fw-medium fs-22 mb-0">1000</p>
+                                             </div>
+                                             <div>
+                                                  <div class="avatar-md bg-primary bg-opacity-10 rounded">
+                                                       <iconify-icon icon="solar:bill-cross-bold-duotone" class="fs-32 text-primary avatar-title"></iconify-icon>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-lg-3">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                             <div>
+                                                  <h4 class="card-title mb-2 d-flex align-items-center gap-2">Paid Invoice</h4>
+                                                  <p class="text-muted fw-medium fs-22 mb-0">1310</p>
+                                             </div>
+                                             <div>
+                                                  <div class="avatar-md bg-primary bg-opacity-10 rounded">
+                                                       <iconify-icon icon="solar:bill-check-bold-duotone" class="fs-32 text-primary avatar-title"></iconify-icon>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-lg-3">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                             <div>
+                                                  <h4 class="card-title mb-2 d-flex align-items-center gap-2">Inactive Invoice</h4>
+                                                  <p class="text-muted fw-medium fs-22 mb-0">1243</p>
+                                             </div>
+                                             <div>
+                                                  <div class="avatar-md bg-primary bg-opacity-10 rounded">
+                                                       <iconify-icon icon="solar:bill-bold-duotone" class="fs-32 text-primary avatar-title"></iconify-icon>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                    </div>
+
+                    <div class="row">
+                         <div class="col-xl-12">
+                              <div class="card">
+                                   <div class="d-flex card-header justify-content-between align-items-center">
+                                        <div>
+                                             <h4 class="card-title">Get your generated report here!!</h4>
+                                        </div>
+                                        
+                                        <div class="dropdown flex">
+                                             <button class="btn-generate-report">Generate Report</button>
+                                             <a href="#" class="dropdown-toggle btn btn-sm btn-outline-light rounded" data-bs-toggle="dropdown" aria-expanded="false">
+                                                  This Month
+                                             </a>
+                                             <div class="dropdown-menu dropdown-menu-end">
+                                                  <!-- item-->
+                                                  <a href="#!" class="dropdown-item">Download</a>
+                                                  <!-- item-->
+                                                  <a href="#!" class="dropdown-item">Export</a>
+                                                  <!-- item-->
+                                                  <a href="#!" class="dropdown-item">Import</a>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                             <table class="table align-middle mb-0 table-hover table-centered group-files">
+                                                  <thead class="bg-light-subtle">
+                                                       <tr>
+                                                            <th style="width: 20px;">
+                                                                 <div class="form-check">
+                                                                      <input type="checkbox" class="form-check-input" id="customCheck1">
+                                                                      <label class="form-check-label" for="customCheck1"></label>
+                                                                 </div>
+                                                            </th>
+                                                            <th>File by form</th>
+                                                            <th>Type</th>
+                                                            <th>Size</th>
+                                                            <th>Date</th>
+                                                            <th>Download</th>
+                                                           
+                                                       </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                       <!-- <tr>
+                                                            <td>
+                                                                 <div class="form-check">
+                                                                      <input type="checkbox" class="form-check-input" id="customCheck2">
+                                                                      <label class="form-check-label" for="customCheck2">&nbsp;</label>
+                                                                 </div>
+                                                            </td>
+                                                            <td><a href="javascript: void(0);" class="text-body">#INV2540</a> </td>
+                                                            <td><img src="static/images/users/avatar-2.jpg" class="avatar-sm rounded-circle me-2" alt="..."> Michael A. Miner</td>
+                                                            <td> 07 Jan, 2023</td>
+                                                            <td> $452 </td>
+                                                            <td> Mastercard </td>
+                                                            <td> <span class="badge bg-success-subtle text-success py-1 px-2">Completed</span> </td>
+                                                            <td>
+                                                                 <div class="d-flex gap-2">
+                                                                      <a href="#!" class="btn btn-light btn-sm"><iconify-icon icon="solar:eye-broken" class="align-middle fs-18"></iconify-icon></a>
+                                                                      <a href="#!" class="btn btn-soft-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><iconify-icon icon="solar:pen-2-broken" class="align-middle fs-18"></iconify-icon></a>
+                                                                      <a href="#!" class="btn btn-soft-danger btn-sm"><iconify-icon icon="solar:trash-bin-minimalistic-2-broken" class="align-middle fs-18"></iconify-icon></a>
+                                                                 </div>
+                                                            </td>
+                                                       </tr> -->
+
+                                                       
+                                                  </tbody>
+                                             </table>
+                                        </div>
+                                        <!-- end table-responsive -->
+                                   </div>
+                                   <div class="card-footer border-top">
+                                        <nav aria-label="Page navigation example">
+                                             <ul class="pagination justify-content-end mb-0">
+                                                  <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+                                                  <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+                                                  <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                                                  <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                                                  <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+                                             </ul>
+                                        </nav>
+                                   </div>
+                              </div>
+                         </div>
+
+                    </div>
+
+               </div>
+               <!-- End Container Fluid -->
+
+               <!-- ========== Footer Start ========== -->
+               {% include 'dashboard/footer.html' %}
+               <!-- ========== Footer End ========== -->
+
+          </div>
+          <!-- ==================================================== -->
+          <!-- End Page Content -->
+          <!-- ==================================================== -->
+
+     </div>
+     <!-- END Wrapper -->
+
+     <script>
+          var reportUrl = "{% url 'download_report' %}";  // Generate URL in Django template
+     </script>
+     <script src="{% static 'js/script.js' %}"></script>
+
+     <!-- Vendor Javascript (Require in all Page) -->
+     <script src="{% static 'js/vendor.js'%}"></script>
+
+      <!-- App Javascript (Require in all Page)  -->
+     <script src="{% static 'js/app.js'%}"></script> 
+     
+
 </body>
+
+
 </html>
